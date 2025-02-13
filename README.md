@@ -38,6 +38,9 @@ The Dockerfile contains important instructions:
 docker build -t welcome-to-docker .
 ```
 
+Here's what the build process looks like:
+![Docker Build Process](screenshots/docker-build.png)
+
 ### Run the Container
 ```bash
 docker run -d -p 8088:3000 --name welcome-to-docker welcome-to-docker
@@ -48,7 +51,8 @@ docker run -d -p 8088:3000 --name welcome-to-docker welcome-to-docker
 docker ps
 ```
 
-Visit `http://localhost:8088` in your browser to see the default blue background page.
+Visit `http://localhost:8088` in your browser to see the initial page:
+![Initial Docker Welcome Page](screenshots/blue-welcome.png)
 
 ## 🎨 Customizing the Application
 
@@ -59,7 +63,8 @@ I modified the application to personalize it:
    - src/App.js
    - src/App.css
 
-2. Modified the background color and text
+2. Modified the background color and text, resulting in this yellow version:
+![Modified Yellow Version](screenshots/yellow-welcome.png)
 
 ### Applying Changes
 To see the modifications, we need to:
@@ -81,6 +86,8 @@ docker run -d -p 8088:3000 --name welcome-to-docker welcome-to-docker
 ```bash
 docker login
 ```
+Successful login confirmation:
+![Docker Login Success](screenshots/docker-login.png)
 
 ### Tag and Push Image
 ```bash
@@ -90,6 +97,9 @@ docker tag welcome-to-docker drux4r/welcome-to-docker
 # Push to Docker Hub
 docker push drux4r/welcome-to-docker
 ```
+
+You can verify the pushed image in Docker Desktop:
+![Docker Desktop Repositories](screenshots/docker-desktop.png)
 
 ## 🤝 Working with Others' Images
 
@@ -101,6 +111,10 @@ docker pull yanisb27/welcome-to-docker-yanis
 # Run container
 docker run -d -p 8089:3000 --name yanis-container yanisb27/welcome-to-docker-yanis
 ```
+
+### Modify the Image
+After modifying Yanis's image, here's the result with a red background:
+![Modified Red Version](screenshots/red-welcome.png)
 
 ### Access and Modify Files
 ```bash
@@ -143,23 +157,3 @@ docker push drux4r/webapp:dev
 - Original [welcome-to-docker](https://github.com/docker/welcome-to-docker) repository by Docker
 - Inspired by Yanis's version (yanisb27)
 - Modified and documented by drux4r
-
-## 📸 Screenshots
-
-### Initial Blue Background
-![Initial Docker Welcome Page](screenshots/blue-welcome.png)
-
-### Modified Yellow Background
-![Modified Yellow Version](screenshots/yellow-welcome.png)
-
-### Modified Red Background
-![Modified Red Version](screenshots/red-welcome.png)
-
-### Docker Build Process
-![Docker Build Terminal](screenshots/docker-build.png)
-
-### Docker Desktop Interface
-![Docker Desktop Repositories](screenshots/docker-desktop.png)
-
-### Docker Login Success
-![Docker Login](screenshots/docker-login.png)
